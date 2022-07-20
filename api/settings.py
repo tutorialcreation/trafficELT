@@ -17,7 +17,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-
+# testing auto deployment
 # Application definition
 
 INSTALLED_APPS = [
