@@ -31,7 +31,7 @@ with DAG(
     schedule_interval='@hourly'
 )as dag:
     task1 = PythonOperator(
-        task_id='greet',
+        task_id='migrate',
         python_callable=migrate_data,
         op_kwargs={"path": "data/dataset.csv","db_table":"endpoints_trafficinfo"}
     )
