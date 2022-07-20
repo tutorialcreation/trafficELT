@@ -45,8 +45,9 @@ A pipeline for transforming Extracting, Loading and Transforming data to busines
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
+![Test Image 4](screenshots/etl_pipeline.png)
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+
 
 Using a docker-compose file, developed a completely dockerized ELT pipeline with PostgreSQL for data storage, Airflow for automation and orchestration, DBT for data transformation, and a Redash dashboard connected to the PostgreSQL database.
 ### Built With
