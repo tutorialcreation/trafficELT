@@ -30,7 +30,7 @@ with DAG(
     default_args=default_args,
     description='this dag handles data manipulations',
     start_date=airflow.utils.dates.days_ago(1),
-    schedule_interval='@hourly'
+    schedule_interval='@once'
 )as dag:
     task1 = PythonOperator(
         task_id='migrate',
