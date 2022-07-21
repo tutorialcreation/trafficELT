@@ -10,13 +10,19 @@ select * from endpoints_trafficinfo where " time" > 0 order by " traveled_d" des
 
 select * from endpoints_trafficinfo where " type" like 'a%'
 select * from endpoints_trafficinfo where " type" like '%i'
+/* we notice that we have 349 records with character 'ar' that is cars,*/
+select * from endpoints_trafficinfo where " type" like '%ar%'
 
-select * from endpoints_trafficinfo where " type" like '%ar%';
-select * from endpoints_trafficinfo where type like 'A%';
-select * from endpoints_trafficinfo where upper(title) like 'A%'; 
-select * from endpoints_trafficinfo where title ilike 'A%';
-select description,coalesce(description,'No description') from endpoints_trafficinfo order by 1;
-select coalesce(description,'No description') as description from endpoints_trafficinfo order by 1;
+select * from endpoints_trafficinfo where " type" like 'C%';
+
+select * from endpoints_trafficinfo where upper(" type") like 'C%'
+select * from endpoints_trafficinfo where " type" ilike 'C%'
+
+/* added code to check whether there is any type that has empty string and
+we found none, all type entries contain data*/
+select " type",coalesce(" type",'no type') from endpoints_trafficinfo order by 1
+/* added new type column with prefilled data */
+select coalesce(" type",'No description') as type from endpoints_trafficinfo order by 1;
 select coalesce(description,'No description') as Description from endpoints_trafficinfo order by 1;
 select coalesce(description,'No description') as "Description" from endpoints_trafficinfo order by 1;
 select distinct coalesce(description,'No description') as description from endpoints_trafficinfo order by 1;
