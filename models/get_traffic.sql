@@ -86,8 +86,9 @@ select  c.id,c.landmarks,p.id,p.location_id,p.type from endpoints_location c,end
 select  c.id,c.landmarks,p.id,p.location_id,p.type from endpoints_location c inner join endpoints_trafficinfo p on c.id=p.location_id;
 select distinct p.location_id,p.type from endpoints_location c inner join endpoints_trafficinfo p on c.id=p.location_id where c.place='Hellas';
 -- left joins
-select c.*,p.category,p.title from categories c left join posts p on c.pk=p.category;
-select c.*,p.category from categories c left join posts p on p.category=c.pk;
+select c.*,p.location_id,p.type from endpoints_location c left join endpoints_trafficinfo p on c.id=p.location_id;
+select c.*,p.location_id,p.type from endpoints_location c left join endpoints_trafficinfo p on p.location_id=c.id;
+
 select c.* from categories c left join posts p on p.category=c.pk where p.category is null;
 select c.*,p.category,p.title from posts p right join categories c on c.pk=p.category;
 select jpt.*,t.*,p.title from j_posts_tags jpt inner join tags t on jpt.tag_pk=t.pk inner join posts p on jpt.post_pk = p.pk;
