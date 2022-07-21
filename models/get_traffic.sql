@@ -22,10 +22,29 @@ select * from endpoints_trafficinfo where " type" ilike 'C%'
 we found none, all type entries contain data*/
 select " type",coalesce(" type",'no type') from endpoints_trafficinfo order by 1
 /* added new type column with prefilled data */
-select coalesce(" type",'No description') as type from endpoints_trafficinfo order by 1;
-select coalesce(description,'No description') as Description from endpoints_trafficinfo order by 1;
-select coalesce(description,'No description') as "Description" from endpoints_trafficinfo order by 1;
-select distinct coalesce(description,'No description') as description from endpoints_trafficinfo order by 1;
+select coalesce(" type",'No type') as type from endpoints_trafficinfo order by 1;
+select coalesce(" type",'No type') as Type from endpoints_trafficinfo order by 1;
+select coalesce(" type",'No type') as "Type" from endpoints_trafficinfo order by 1;
+-- not distinct - 6
+select distinct coalesce(" type",'No type') as type from endpoints_trafficinfo order by 1;
+-- not distinct - 742
+select distinct coalesce(" traveled_d",0) as travel_distance from endpoints_trafficinfo order by 1;
+-- distinct - 761
+select distinct coalesce(" avg_speed",0) as average_speed from endpoints_trafficinfo order by 1;
+-- not distinct - 265
+select distinct coalesce(" lat",0) as latitude from endpoints_trafficinfo order by 1;
+-- not distinct - 339
+select distinct coalesce(" lon",0) as longitude from endpoints_trafficinfo order by 1;
+-- not distinct - 736
+select distinct coalesce(" speed",0) as speed from endpoints_trafficinfo order by 1;
+-- not distinct - 637
+select distinct coalesce(" lon_acc",0) as long_acc from endpoints_trafficinfo order by 1;
+-- not distinct - 640
+select distinct coalesce(" lat_acc",0) as lat_acc from endpoints_trafficinfo order by 1;
+-- not distinct - 610
+select distinct coalesce(" time",0) as time from endpoints_trafficinfo order by 1;
+
+
 select * from endpoints_trafficinfo order by pk limit 1;
 select * from endpoints_trafficinfo order by pk limit 2;
 select * from endpoints_trafficinfo order by pk offset 1 limit 1;
