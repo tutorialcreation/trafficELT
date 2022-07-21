@@ -1,10 +1,17 @@
 select * from endpoints_trafficinfo
+/* we see that all column names are of type double precision(float) apart from track_id,id and text*/
 select column_name, data_type from   information_schema.columns where  table_name = 'endpoints_trafficinfo' order  by ordinal_position
-select * from endpoints_trafficinfo where " time" > 0 order by " avg_speed"
-select * from endpoints_trafficinfo where time > 0 order by traveled_d;
-select * from endpoints_trafficinfo where type like 'a%';
-select * from endpoints_trafficinfo where type like '%e';
-select * from endpoints_trafficinfo where type like '%ap%';
+/* we see that we have 704 records with positive time, and that the
+motorcycle is the one with the greatest average speed in the traffic*/
+select * from endpoints_trafficinfo where " time" > 0 order by " avg_speed" desc
+/* we see that the vehicle that traveled that traveled the longest distance in traffic
+is the car*/
+select * from endpoints_trafficinfo where " time" > 0 order by " traveled_d" desc
+
+select * from endpoints_trafficinfo where " type" like 'a%'
+select * from endpoints_trafficinfo where " type" like '%i'
+
+select * from endpoints_trafficinfo where " type" like '%ar%';
 select * from endpoints_trafficinfo where type like 'A%';
 select * from endpoints_trafficinfo where upper(title) like 'A%'; 
 select * from endpoints_trafficinfo where title ilike 'A%';
