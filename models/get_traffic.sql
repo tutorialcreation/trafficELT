@@ -1,5 +1,6 @@
 select * from endpoints_trafficinfo
-select * from endpoints_trafficinfo where time > 0 order by avg_speed;
+select column_name, data_type from   information_schema.columns where  table_name = 'endpoints_trafficinfo' order  by ordinal_position
+select * from endpoints_trafficinfo where " time" > 0 order by " avg_speed"
 select * from endpoints_trafficinfo where time > 0 order by traveled_d;
 select * from endpoints_trafficinfo where type like 'a%';
 select * from endpoints_trafficinfo where type like '%e';
