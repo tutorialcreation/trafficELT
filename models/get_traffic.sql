@@ -78,12 +78,14 @@ select id,traveled_d,avg_speed,speed,lat,lon,location_id from endpoints_traffici
 /*
 JOINS
 */
-
+-- cross joins
 select c.id,c.landmarks,p.id,p.location_id,p.type from endpoints_location c,endpoints_trafficinfo p;
-select c.pk,c.title,p.pk,p.category,p.title from categories c CROSS JOIN posts p;
-select c.pk,c.title,p.pk,p.category,p.title from categories c,posts p where c.pk=p.category;
-select c.pk,c.title,p.pk,p.category,p.title from categories c inner join posts p on c.pk=p.category;
-select distinct p.pk,p.title,p.content,p.author,p.category from categories c inner join posts p on c.pk=p.category where c.title='orange';
+select c.id,c.landmarks,p.id,p.location_id,p.type from endpoints_location c cross join endpoints_trafficinfo p;
+-- inner joins
+select  c.id,c.landmarks,p.id,p.location_id,p.type from endpoints_location c,endpoints_trafficinfo p where c.id=p.location_id;
+select  c.id,c.landmarks,p.id,p.location_id,p.type from endpoints_location c inner join endpoints_trafficinfo p on c.id=p.location_id;
+select distinct p.location_id,p.type from endpoints_location c inner join endpoints_trafficinfo p on c.id=p.location_id where c.place='Hellas';
+-- left joins
 select c.*,p.category,p.title from categories c left join posts p on c.pk=p.category;
 select c.*,p.category from categories c left join posts p on p.category=c.pk;
 select c.* from categories c left join posts p on p.category=c.pk where p.category is null;
