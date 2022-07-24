@@ -1,1 +1,0 @@
-SELECT * FROM endpoints_trafficinfo

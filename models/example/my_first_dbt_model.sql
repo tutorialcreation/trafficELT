@@ -11,9 +11,9 @@
 
 with source_data as (
 
-    select 1 as id
-    union all
-    select null as id
+-- not distinct - 6
+select distinct coalesce(type,'No type') as type from endpoints_trafficinfo order by 1
+-- not distinct - 742
 
 )
 

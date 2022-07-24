@@ -5,3 +5,7 @@ gunicorn
 psycopg2-binary
 dj_database_url
 sqlalchemy
+apache-airflow-providers-dbt-cloud[http]
+googletrans==4.0.0-rc1
+geopy
+dbt-postgres
