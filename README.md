@@ -7,7 +7,7 @@ A pipeline for transforming Extracting, Loading and Transforming data to busines
   <p align="center">
     A fully dockerized ELT pipeline project, using PostgreSQL, dbt, Apache Airflow, and Redash.
     <br />
-    <a href="#"><strong>Explore the docs »</strong></a>
+    <a href="https://trafficeltdocs.herokuapp.com/"><strong>Explore the docs »</strong></a>
     <br />
     <br />
   </p>
