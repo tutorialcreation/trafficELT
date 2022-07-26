@@ -4,6 +4,9 @@ with test_distributions as(
     ),
     time_distribution as(
         select time,count(*) from endpoints_trafficinfo group by time
+    ),
+    type_distribution as(
+        select type,count(*) from endpoints_trafficinfo group by type
     )
     
 )
